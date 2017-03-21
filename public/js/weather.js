@@ -4,7 +4,7 @@
   var request;
   var gettingData = false;
   var openWeatherMapKey = "7a5c8ed1fa6deb0129d0457dca1772a5";
-  function initialize(latitude,longitude) {
+  function initialize() {
     var mapOptions = {
       zoom: 7,
       center: new google.maps.LatLng(41.8781, -87.6298)
