@@ -4,7 +4,7 @@ $(document).ready(function () {
 
 
 
-    var url = 'http://gomashup.com/json.php?fds=geo/usa/zipcode/state/';
+    var url = 'https://gomashup.com/json.php?fds=geo/usa/zipcode/state/';
 
 
     $('#states').on('change', function () {
