@@ -3,12 +3,12 @@ var app = express();
 
 app.set('port', (process.env.PORT || 5000));
 
-app.use('/static', express.static(path.join(__dirname, 'public')))
+app.use(express.static(__dirname + '/public'));
 
 
 
 app.get('/', function(request, response) {
-  response.sendFile('/static/main_usa.html');
+  response.sendFile('main_usa.html');
 });
 
 app.listen(app.get('port'), function() {
