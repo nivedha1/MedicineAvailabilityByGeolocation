@@ -8,7 +8,7 @@ app.use(express.static(__dirname + '/public'));
 
 
 app.get('/', function(request, response) {
-  response.sendFile('html/main_usa.html');
+  response.sendFile('main_usa.html');
 });
 
 app.listen(app.get('port'), function() {
