@@ -93,11 +93,11 @@
         windGust: weatherItem.wind.gust,
         icon: "http://openweathermap.org/img/w/"
               + weatherItem.weather[0].icon  + ".png",
-        coordinates: [weatherItem.coord.Lon, weatherItem.coord.Lat]
+        coordinates: [weatherItem.coord.lon, weatherItem.coord.lat]
       },
       geometry: {
         type: "Point",
-        coordinates: [weatherItem.coord.Lon, weatherItem.coord.Lat]
+        coordinates: [weatherItem.coord.lon, weatherItem.coord.lat]
       }
     };
     // Set the custom marker icon
