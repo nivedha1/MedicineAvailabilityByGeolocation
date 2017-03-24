@@ -174,25 +174,19 @@ function highlight(value,title){
 }
 
 $('#medicine').change( function() {
-var urlAutoMed = "https://api.drugbankplus.com/v1/drug_names/simple?q=tylenol";
+
 
 
   $.ajax({
-      url: urlAutoMed,
+      url: "/medicine",
       type: "GET",
-      crossDomain: true,
-        dataType: 'jsonp',
-      beforeSend: function (xhr) {
-    					xhr.setRequestHeader('Authorization',
-              'fc8c108f9833af20c8468722d4577692');
- 				},
-
       success: function(data) {
         console.log(data)
       },
-      error: function() {
-          alert('Failed!');
+      error:function() {
+        console.log('failed')
       }
-  });
+    });
+
 });
 });
