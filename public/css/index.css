@@ -1,0 +1,19 @@
+body
+{
+	background-image: url(../images/wallpaper.jpg);
+    background-repeat: repeat;
+    background-position: 0 0;
+}
+
+label
+{
+	color:antiquewhite;
+  color: antiquewhite;
+    font-size: 30px;
+    font-style: italic;
+ text-decoration: underline;
+padding-bottom:5px;
+  display: flex;
+  align-items: center;
+
+}
