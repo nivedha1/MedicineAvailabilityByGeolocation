@@ -178,7 +178,7 @@ $('#medicine').change( function() {
 
 
   $.ajax({
-      url: "/medicine",
+      url: "/medicine?q="+this.value,
       type: "GET",
       success: function(data) {
         console.log(data)
