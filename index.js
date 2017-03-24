@@ -22,7 +22,7 @@ app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
 var urlAutoMed = "https://api.drugbankplus.com/v1/drug_names/simple?q=tylenol";
-app.get('/med/getoptions',function(){
+app.get('/medicine',function(){
   var options = {
     host: urlAutoMed
   }
