@@ -158,10 +158,7 @@ $(document).ready(function() {
     $('#next-button').on('click', function() {
         latitude = $("#cities option:selected").val().split(',')[1];
         longitude = $("#cities option:selected").val().split(',')[0];
-        $(".tab-pane").removeClass('active');
-        $("#Weather").addClass('active');
-        $("li").removeClass('active');
-        $("#tWea").addClass('active');
+      highlight("tWea","Weather");
         $('#map-canvas').empty()
         $('#map-canvas').css('width',window.innerWidth);
           $('#map-canvas').css('height',window.innerHeight);
@@ -169,8 +166,33 @@ $(document).ready(function() {
 initialize()
 });
 
+function highlight(value,title){
+  $(".tab-pane").removeClass('active');
+  $("#"+title).addClass('active');
+  $("li").removeClass('active');
+  $("#"+value).addClass('active');
+}
+
+$('#medicine').change( function() {
+var urlAutoMed = "https://api.drugbankplus.com/v1/drug_names/simple?q=tylenol";
 
 
+  $.ajax({
+      url: urlAutoMed,
+      type: "GET",
+      crossDomain: true,
+        dataType: 'jsonp',
+      beforeSend: function (xhr) {
+    					xhr.setRequestHeader('Authorization',
+              'fc8c108f9833af20c8468722d4577692');
+ 				},
 
-
+      success: function(data) {
+        console.log(data)
+      },
+      error: function() {
+          alert('Failed!');
+      }
+  });
+});
 });

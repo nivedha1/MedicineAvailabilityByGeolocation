@@ -11,7 +11,6 @@
          src="js/bootstrap.min.js"></script>
       <link rel="stylesheet" href="css/bootstrap.min.css">
       <script  src="js/main.js"></script>
-      <script  src="js/weather.js"></script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsvuHZZLslnSKddPLWbjScHoL3_9w_QZs"></script>
    </head>
    <body>
@@ -99,7 +98,15 @@
             <div id="map-canvas"></div>
          </div>
          <div class="tab-pane" id="Food"></div>
-         <div class="tab-pane" id="Health"></div>
+         <div class="tab-pane" id="Health">
+           <form>
+              <div class="form-group">
+                <label for="cities" >Enter Medicine Name : </label>
+                <input type="text" class="form-control" id="medicine">
+              </input>
+              <button type="button" class="btn btn-default" id="next-button">Get Availability</button>
+             </div>
+         </div>
       </div>
       </div>
    </body>
