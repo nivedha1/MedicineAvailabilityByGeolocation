@@ -21,7 +21,8 @@ app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
 var urlAutoMed = "https://api.drugbankplus.com/v1/drug_names/simple";
-app.get('/medicine',function(req,res){
+var urlAvailMed = "https://api.drugbankplus.com/v1/ca/drug_names";
+app.get('/medicineSuggestion',function(req,res){
   var options = {
       url: urlAutoMed,
       method: 'GET',
@@ -30,10 +31,21 @@ app.get('/medicine',function(req,res){
       },
       qs :{'q':req.query.q}
   };
-
   request(options, function(err,response,body) {
     res.send(body);
   });
-
+});
+  app.get('/medicineAvailability',function(req,res){
+    var options = {
+        url: urlAvailMed,
+        method: 'GET',
+        headers: {
+            'Authorization': 'fc8c108f9833af20c8468722d4577692',
+        },
+        qs :{'q':req.query.q}
+    };
+    request(options, function(err,response,body) {
+      res.send(body);
+    });
 
 })

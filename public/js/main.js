@@ -8,6 +8,8 @@ var lat;
 var long;
 var openWeatherMapKey = "7a5c8ed1fa6deb0129d0457dca1772a5";
 $(document).ready(function() {
+  $('#success').hide();
+  $('#warning').hide();
   function initialize() {
     var mapOptions = {
       zoom: 8,
@@ -69,7 +71,7 @@ $(document).ready(function() {
   };
   // Take the JSON results and proccess them
   var proccessResults = function() {
-    console.log(this);
+  //  console.log(this);
     var results = JSON.parse(this.responseText);
     if (results.list.length > 0) {
         resetData();
@@ -97,11 +99,11 @@ $(document).ready(function() {
         windGust: weatherItem.wind.gust,
         icon: "http://openweathermap.org/img/w/"
               + weatherItem.weather[0].icon  + ".png",
-        coordinates: [weatherItem.coord.Lon, weatherItem.coord.Lat]
+        coordinates: [weatherItem.coord.lon, weatherItem.coord.lat]
       },
       geometry: {
         type: "Point",
-        coordinates: [weatherItem.coord.Lon, weatherItem.coord.Lat]
+        coordinates: [weatherItem.coord.lon, weatherItem.coord.lat]
       }
     };
     // Set the custom marker icon
@@ -141,11 +143,25 @@ $(document).ready(function() {
             crossDomain: true,
             dataType: 'jsonp',
             success: function(data) {
-                for (var val in data.result) {
+              var result=[];
+              var cities = [];var i=0;
+              for (var val in data.result) {
+
+                    if(jQuery.inArray(data.result[val].City,cities)==-1)
+                    {
+                      result[i]={};
+                    result[i].Longitude=data.result[val].Longitude;
+                    result[i].Latitude=data.result[val].Latitude;
+                    result[i].City=data.result[val].City;
+                    cities[i]=data.result[val].City;
+                    i++;
+                  }
+              }
+                for (var val in result) {
                     $('#cities').append($("<option >", {
-                        value: data.result[val].Longitude + "," +
-                            data.result[val].Latitude,
-                        text: data.result[val].City
+                        value: result[val].Longitude + "," +
+                            result[val].Latitude,
+                        text:result[val].City.toLowerCase()
                     }));
                 }
             },
@@ -158,35 +174,57 @@ $(document).ready(function() {
     $('#next-button').on('click', function() {
         latitude = $("#cities option:selected").val().split(',')[1];
         longitude = $("#cities option:selected").val().split(',')[0];
-      highlight("tWea","Weather");
+
         $('#map-canvas').empty()
         $('#map-canvas').css('width',window.innerWidth);
           $('#map-canvas').css('height',window.innerHeight);
-
+$("#collapse2").addClass("in");
 initialize()
 });
 
-function highlight(value,title){
-  $(".tab-pane").removeClass('active');
-  $("#"+title).addClass('active');
-  $("li").removeClass('active');
-  $("#"+value).addClass('active');
-}
+
 
 $('#medicine').change( function() {
-
-
-
   $.ajax({
-      url: "/medicine?q="+this.value,
+      url: "/medicineSuggestion?q="+this.value,
       type: "GET",
       success: function(data) {
-        console.log(data)
+        var medicinesSuggestions = JSON.parse(data).products;
+        for (var val in medicinesSuggestions) {
+            $('#medicines').append($("<option >", {
+                value: medicinesSuggestions[val].name ,
+                text: medicinesSuggestions[val].name
+            }));
+        }
       },
       error:function() {
         console.log('failed')
       }
     });
+});
+$('#availability-button').on('click', function() {
+  $('#success').hide();
+  $('#warning').hide();
 
+  var medName = '';
+  if($("#medicines option:selected").val()!=0)
+     medName = $("#medicines option:selected").val().split(" ")[0];
+else {
+  medName = $('#medicine').val();
+}
+    $.ajax({
+        url: "/medicineAvailability?q="+medName,
+        type: "GET",
+        success: function(data) {
+          if(JSON.parse(data).products.length==0)
+            $('#warning').show();
+          else {
+            $('#success').show();
+          }
+        },
+        error:function() {
+          console.log('failed')
+        }
+      });
 });
 });

@@ -14,100 +14,139 @@
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsvuHZZLslnSKddPLWbjScHoL3_9w_QZs"></script>
    </head>
    <body>
-      <ul class="nav nav-tabs" id="myTab">
-         <li id="tDet" class="active"><a data-target="#Details" data-toggle="tab">Details</a></li>
-         <li id="tWea" ><a data-target="#Weather" data-toggle="tab">Weather</a></li>
-         <li id="tFoo" ><a data-target="#Food" data-toggle="tab">Food</a></li>
-         <li id="tHea" ><a data-target="#Health" data-toggle="tab">Health</a></li>
-      </ul>
-      <div class="tab-content">
-         <div class="tab-pane active" id="Details">
-            <div class="container">
-               <form>
-                  <div class="form-group">
-                     </br></br></br>
-                     <label for="states">Choose State : </label>
-                     <select class="form-control" id="states">
-                        <option value="AL">Alabama</option>
-                        <option value="AK">Alaska</option>
-                        <option value="AZ">Arizona</option>
-                        <option value="AR">Arkansas</option>
-                        <option value="CA">California</option>
-                        <option value="CO">Colorado</option>
-                        <option value="CT">Connecticut</option>
-                        <option value="DE">Delaware</option>
-                        <option value="DC">District Of Columbia</option>
-                        <option value="FL">Florida</option>
-                        <option value="GA">Georgia</option>
-                        <option value="HI">Hawaii</option>
-                        <option value="ID">Idaho</option>
-                        <option value="IL">Illinois</option>
-                        <option value="IN">Indiana</option>
-                        <option value="IA">Iowa</option>
-                        <option value="KS">Kansas</option>
-                        <option value="KY">Kentucky</option>
-                        <option value="LA">Louisiana</option>
-                        <option value="ME">Maine</option>
-                        <option value="MD">Maryland</option>
-                        <option value="MA">Massachusetts</option>
-                        <option value="MI">Michigan</option>
-                        <option value="MN">Minnesota</option>
-                        <option value="MS">Mississippi</option>
-                        <option value="MO">Missouri</option>
-                        <option value="MT">Montana</option>
-                        <option value="NE">Nebraska</option>
-                        <option value="NV">Nevada</option>
-                        <option value="NH">New Hampshire</option>
-                        <option value="NJ">New Jersey</option>
-                        <option value="NM">New Mexico</option>
-                        <option value="NY">New York</option>
-                        <option value="NC">North Carolina</option>
-                        <option value="ND">North Dakota</option>
-                        <option value="OH">Ohio</option>
-                        <option value="OK">Oklahoma</option>
-                        <option value="OR">Oregon</option>
-                        <option value="PA">Pennsylvania</option>
-                        <option value="RI">Rhode Island</option>
-                        <option value="SC">South Carolina</option>
-                        <option value="SD">South Dakota</option>
-                        <option value="TN">Tennessee</option>
-                        <option value="TX">Texas</option>
-                        <option value="UT">Utah</option>
-                        <option value="VT">Vermont</option>
-                        <option value="VA">Virginia</option>
-                        <option value="WA">Washington</option>
-                        <option value="WV">West Virginia</option>
-                        <option value="WI">Wisconsin</option>
-                        <option value="WY">Wyoming</option>
-                     </select>
-                     <br>
-                     <br>
-                  </div>
-                  <div class="form-group">
-                     </br></br></br>
-                     <label for="cities" >Choose City : </label>
-                     <select class="form-control" id="cities">
-                        <option value="0" selected="selected">Please Select State</option>
-                     </select>
-                  </div>
-                  <button type="button" class="btn btn-default" id="next-button">Next</button>
-            </div>
+     <div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+        Enter Details : </a>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse in">
+      <div class="container center_div">
+        <br>
+      <form>
+         <div class="form-group">
+            <label for="states">Choose State : </label>
+            <select class="form-control" id="states">
+               <option value="AL">Alabama</option>
+               <option value="AK">Alaska</option>
+               <option value="AZ">Arizona</option>
+               <option value="AR">Arkansas</option>
+               <option value="CA">California</option>
+               <option value="CO">Colorado</option>
+               <option value="CT">Connecticut</option>
+               <option value="DE">Delaware</option>
+               <option value="DC">District Of Columbia</option>
+               <option value="FL">Florida</option>
+               <option value="GA">Georgia</option>
+               <option value="HI">Hawaii</option>
+               <option value="ID">Idaho</option>
+               <option value="IL">Illinois</option>
+               <option value="IN">Indiana</option>
+               <option value="IA">Iowa</option>
+               <option value="KS">Kansas</option>
+               <option value="KY">Kentucky</option>
+               <option value="LA">Louisiana</option>
+               <option value="ME">Maine</option>
+               <option value="MD">Maryland</option>
+               <option value="MA">Massachusetts</option>
+               <option value="MI">Michigan</option>
+               <option value="MN">Minnesota</option>
+               <option value="MS">Mississippi</option>
+               <option value="MO">Missouri</option>
+               <option value="MT">Montana</option>
+               <option value="NE">Nebraska</option>
+               <option value="NV">Nevada</option>
+               <option value="NH">New Hampshire</option>
+               <option value="NJ">New Jersey</option>
+               <option value="NM">New Mexico</option>
+               <option value="NY">New York</option>
+               <option value="NC">North Carolina</option>
+               <option value="ND">North Dakota</option>
+               <option value="OH">Ohio</option>
+               <option value="OK">Oklahoma</option>
+               <option value="OR">Oregon</option>
+               <option value="PA">Pennsylvania</option>
+               <option value="RI">Rhode Island</option>
+               <option value="SC">South Carolina</option>
+               <option value="SD">South Dakota</option>
+               <option value="TN">Tennessee</option>
+               <option value="TX">Texas</option>
+               <option value="UT">Utah</option>
+               <option value="VT">Vermont</option>
+               <option value="VA">Virginia</option>
+               <option value="WA">Washington</option>
+               <option value="WV">West Virginia</option>
+               <option value="WI">Wisconsin</option>
+               <option value="WY">Wyoming</option>
+            </select>
          </div>
+         <div class="form-group">
+           <br>
+
+            <label for="cities" >Choose City : </label>
+            <select class="form-control" id="cities">
+               <option value="0" selected="selected">Please Select State</option>
+            </select>
+         </div>
+         <div class="form-actions">
+         <button type="button" class="btn btn-default" id="next-button">Next</button>
+       </div>
+       <br><br><br>
          </form>
-         <div class="tab-pane" id="Weather">
-            <div id="map-canvas"></div>
-         </div>
-         <div class="tab-pane" id="Food"></div>
-         <div class="tab-pane" id="Health">
-           <form>
-              <div class="form-group">
-                <label for="cities" >Enter Medicine Name : </label>
-                <input type="text" class="form-control" id="medicine">
-              </input>
-              <button type="button" class="btn btn-default" id="next-button">Get Availability</button>
-             </div>
-         </div>
-      </div>
-      </div>
+       </div>
+   </div>
+</div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+        Personalize weather conditions : </a>
+      </h4>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse in">
+        <div id="map-canvas"></div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+        Check medicine availability</a>
+      </h4>
+    </div>
+    <div id="collapse3" class="panel-collapse collapse in">
+      <div class="container center_div">
+        <br>
+      <form>
+         <div class="form-group">
+           <label for="medicine" >Enter Medicine Name : </label>
+           <input type="text" class="form-control" id="medicine">
+         </input>
+       <br>
+       <label for="medicines" >Choose the closest medicine : </label>
+       <select class="form-control" id="medicines">
+          <option value="0" selected="selected">Please Enter medicine</option>
+       </select>
+       <br><br>
+<div class="form-actions">
+         <button type="button" class="btn btn-default" id="availability-button">Get Availability</button>
+         <br><br><br>
+       </div>
+        </div>
+        <div class="alert alert-success" id="success">
+            <strong>Success!</strong> This medicine is available in usa
+          </div>
+          <div class="alert alert-warning" id="warning">
+            <strong>Warning!</strong> This medicine is not available in usa
+          </div>
+    </form>
+  </div>
+    </div>
+  </div>
+</div>
+
+
    </body>
 </html>
