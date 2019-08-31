@@ -9,6 +9,7 @@
   "scripts": {
     "start": "node index.js"
   },
+  "author":"nivedha",
   "dependencies": {
     "express": "^4.13.3",
     "request": "^2.81.0"
