@@ -17,4 +17,4 @@ npm start
 
 ```
 
-#Ths application finds mediicine availability by geo location
+# Ths application finds mediicine availability by geo location
